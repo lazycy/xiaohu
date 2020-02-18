@@ -9,12 +9,15 @@ class CommonController extends Controller
     public function timeline() {
         list($limit, $skip) = paginate(rq('page'), rq('limit'));
         $questions = question_ins()
+            ->with('user')
             ->limit($limit)
             ->skip($skip)
             ->orderBy('created_at', 'desc')
             ->get();
 
         $answers = answer_ins()
+            ->with('users')     //谁投票了
+            ->with('user')      //谁回答了
             ->limit($limit)
             ->skip($skip)
             ->orderBy('created_at', 'desc')

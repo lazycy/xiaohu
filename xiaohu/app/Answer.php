@@ -143,6 +143,12 @@ class Answer extends Model
         return ['status' => 1];
     }
 
+    // 对回答
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+
+    // 对投票
     public function users() {
         return $this
             ->belongsToMany('App\User')
