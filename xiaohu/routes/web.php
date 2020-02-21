@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// 加入下面两句，解决在vscode中Intelephense提示undefined type的问题，详见https://learnku.com/laravel/t/39860
+use \Illuminate\Support\Facades\Route;
+use \Illuminate\Support\Facades\Request;
+
+
 function paginate($page = 1, $limit = 16)
 {
     $limit = $limit ?: 16;
