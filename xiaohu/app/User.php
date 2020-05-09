@@ -123,7 +123,7 @@ class User extends Model
     public function is_logged_in()
     {
         // 如果session中存在user_id就返回user_id,否则返回false
-        return session('user_id') ?: false;
+        return is_logged_in();
     }
 
     // 修改密码api
