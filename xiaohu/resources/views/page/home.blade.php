@@ -4,7 +4,7 @@
     <div class="item-set">
         <div ng-repeat="item in Timeline.data" class="feed item clearfix">
             <div class="vote">
-                <div class="up">134</div>
+                <div class="up">[: item.upvote_count :]</div>
                 <div class="down">踩</div>
             </div>
             <div class="feed-item-content">

@@ -2,6 +2,7 @@ var app = angular.module('xiaohu', [
     'ui.router',
     'common',
     'user',
+    'answer',
     'question']);
 
 app.config([

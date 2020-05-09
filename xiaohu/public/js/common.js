@@ -2,7 +2,8 @@ var app = angular.module('common', []);
 
 app.service('TimelineService', [
     '$http',
-    function ($http) {
+    'AnswerService',
+    function ($http, AnswerService) {
         var me = this;
         me.data = [];
         me.current_page = 1;
@@ -17,6 +18,7 @@ app.service('TimelineService', [
                     if (r.data.status) {
                         if(r.data.data.length){
                             me.data = me.data.concat(r.data.data);
+                            me.data = AnswerService.count_vote(me.data);
                             me.current_page++;
                         } else {
                             me.no_more_data = true;
