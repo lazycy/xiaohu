@@ -34,6 +34,13 @@ app.service('TimelineService', [
                     me.pending = false;
                 })
         }
+        me.vote = function(conf) {
+            AnswerService.vote(conf)
+                .then(function(r){
+                    if(r)
+                        AnswerService.update_data(conf.id);
+                });
+        }
     }
 ]);
 
