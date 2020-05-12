@@ -59,7 +59,7 @@ app.service('AnswerService', [
         me.update_data = function(id) {
             return $http.post('/api/answer/read', {id: id})
                 .then(function(r){
-                    console.log('r', r);
+                    me.data[id] = r.data.data;
                 })
         }
     }]);
